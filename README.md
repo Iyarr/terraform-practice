@@ -29,5 +29,6 @@ dockerfile からコンテナを起動する手順は次の通り
 
 - docker build -t example:latest .
 - docker run --env-file .env -it example:latest
-  コンテナを起動する際に.env ファイルを読み込む
-  読み込んだ環境変数は start.sh スクリプトファイルで参照されて使用する
+
+コンテナを起動する際に.env ファイルを読み込む
+読み込んだ環境変数は start.sh スクリプトファイルで参照されて使用する
