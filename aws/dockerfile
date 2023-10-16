@@ -1,0 +1,22 @@
+FROM ubuntu:latest
+
+RUN apt update && apt upgrade -y && \
+    apt install -y unzip zip git && \
+    \
+    #tfenvのインストール
+    git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+
+ENV PATH="/root/.tfenv/bin:$PATH"
+
+    #tfenv install latestで使用するcurlコマンドをインストール
+RUN apt install -y curl && \
+    tfenv install latest && \
+    tfenv use latest
+
+COPY ./tf/ /home/
+
+WORKDIR /home
+
+RUN chmod +x ./start.sh
+
+#CMD ["./start.sh"]
